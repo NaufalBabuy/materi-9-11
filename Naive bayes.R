@@ -1,0 +1,21 @@
+---
+
+---
+  
+  ```{r}
+install.packages("mlbench")
+library(mlbench)
+data(PimaIndiansDiabetes) 
+head(PimaIndiansDiabetes)
+```
+
+```{r}
+#mengeset data
+new_data <- subset(PimaIndiansDiabetes, select = c(glucose, pressure, mass, age, diabetes))
+```
+
+```{r}
+#fitting model data naive bayes
+library(naivebayes)
+Naive_Bayes_Models = naive_bayes(diabetes ~., data = new_data)
+Naive_Bayes_Models
